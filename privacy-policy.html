@@ -9,7 +9,7 @@
     --bg:#0a0c14; --bg2:#0d1120;
     --ink:#eef1f6; --sub:#9aa3b6; --sub2:#7d8598;
     --card:rgba(255,255,255,0.045); --line:rgba(255,255,255,0.09);
-    --g1:#33d187; --g2:#2fb6e0;
+    --g1:#2fa8e6; --g2:#4a4ce0;
   }
   *{box-sizing:border-box; -webkit-font-smoothing:antialiased;}
   html,body{margin:0; padding:0;}
@@ -27,10 +27,26 @@
   .bg-deco span{
     position:absolute; border-radius:40%; filter:blur(90px); opacity:0.28;
   }
-  .b1{width:420px;height:420px; background:#33d187; top:-160px; left:-140px;}
-  .b2{width:380px;height:380px; background:#2fb6e0; top:-120px; right:-160px;}
-  .b3{width:460px;height:460px; background:#7a5cf0; bottom:-220px; left:-160px;}
-  .b4{width:400px;height:400px; background:#e0637a; bottom:-180px; right:-140px;}
+  .b1{width:420px;height:420px; background:#2fb6e0; top:-160px; left:-140px;}
+  .b2{width:380px;height:380px; background:#4a4ce0; top:-120px; right:-160px;}
+  .b3{width:460px;height:460px; background:#299fb4; bottom:-220px; left:-160px;}
+  .b4{width:400px;height:400px; background:#3672c6; bottom:-180px; right:-140px;}
+  .grid-tex{
+    position:absolute; inset:0;
+    background-image:
+      linear-gradient(rgba(255,255,255,0.05) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255,255,255,0.05) 1px, transparent 1px);
+    background-size:56px 56px;
+    opacity:0.5;
+  }
+  .grain-tex{
+    position:absolute; inset:0; opacity:0.05;
+    background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  }
+  .bg-deco::before{
+    content:""; position:absolute; inset:0;
+    background:radial-gradient(ellipse at 50% 12%, transparent 0%, rgba(0,0,0,0.4) 88%);
+  }
   .bg-deco::after{
     content:""; position:absolute; inset:0;
     background:linear-gradient(180deg, rgba(10,12,20,0.55) 0%, rgba(10,12,20,0.88) 22%, var(--bg) 46%, var(--bg) 100%);
@@ -44,8 +60,8 @@
   }
   .brand{display:flex; align-items:center; gap:10px; font-weight:800; font-size:16px; letter-spacing:0.2px;}
   .brand img{
-    width:30px; height:30px; border-radius:8px;
-    box-shadow:0 3px 12px rgba(0,0,0,0.45), 0 0 0 1px rgba(255,255,255,0.08);
+    width:32px; height:32px; border-radius:9px;
+    box-shadow:0 3px 12px rgba(0,0,0,0.45), 0 0 0 1px rgba(255,255,255,0.1), 0 0 22px rgba(47,168,230,0.35);
   }
   .lang-toggle{
     display:flex; gap:2px; background:rgba(255,255,255,0.06);
@@ -59,7 +75,17 @@
     background:linear-gradient(135deg, var(--g1), var(--g2)); color:#04140c;
   }
 
-  .hero{text-align:center; margin:0 0 46px;}
+  @keyframes fadeUp{ from{opacity:0; transform:translateY(14px);} to{opacity:1; transform:translateY(0);} }
+
+  .eyebrow{
+    display:inline-flex; align-items:center; gap:6px;
+    padding:6px 14px; border-radius:999px; margin-bottom:16px;
+    background:rgba(47,182,224,0.10); border:1px solid rgba(47,182,224,0.28);
+    color:#8ec9f2; font-size:11.5px; font-weight:700; letter-spacing:0.8px; text-transform:uppercase;
+  }
+  .eyebrow svg{width:12px; height:12px; stroke:#8ec9f2; fill:none; stroke-width:2; stroke-linecap:round; stroke-linejoin:round;}
+
+  .hero{text-align:center; margin:0 0 46px; animation:fadeUp .5s ease both;}
   .hero h1{
     font-size:clamp(30px,5vw,42px); margin:0 0 10px; font-weight:800; letter-spacing:-0.5px;
     background:linear-gradient(100deg, #ffffff 20%, var(--g1) 65%, var(--g2) 100%);
@@ -69,16 +95,35 @@
 
   .card{
     position:relative;
-    background:var(--card); border:1px solid var(--line); border-radius:18px;
-    padding:24px 26px; margin-bottom:14px;
+    background:var(--card); border:1px solid var(--line); border-radius:20px;
+    padding:26px 26px; margin-bottom:14px;
     backdrop-filter:blur(18px); -webkit-backdrop-filter:blur(18px);
+    animation:fadeUp .55s ease both;
+    transition:transform .25s ease, box-shadow .25s ease, border-color .25s ease;
+  }
+  .card:nth-of-type(1){animation-delay:.04s}
+  .card:nth-of-type(2){animation-delay:.08s}
+  .card:nth-of-type(3){animation-delay:.12s}
+  .card:nth-of-type(4){animation-delay:.16s}
+  .card:nth-of-type(5){animation-delay:.20s}
+  .card:nth-of-type(6){animation-delay:.24s}
+  .card:nth-of-type(7){animation-delay:.28s}
+  .card::before{
+    content:""; position:absolute; top:0; left:18px; right:18px; height:1px;
+    background:linear-gradient(90deg, transparent, rgba(255,255,255,0.35), transparent);
+  }
+  .card:hover{
+    transform:translateY(-3px);
+    box-shadow:0 18px 44px rgba(0,0,0,0.4);
+    border-color:rgba(255,255,255,0.18);
   }
   .card .head{display:flex; align-items:center; gap:12px; margin-bottom:12px;}
   .badge{
-    flex:0 0 auto; width:30px; height:30px; border-radius:10px;
+    flex:0 0 auto; width:32px; height:32px; border-radius:11px;
     display:flex; align-items:center; justify-content:center;
     font-size:12px; font-weight:800; color:#04140c;
     background:linear-gradient(135deg, var(--seed1,var(--g1)), var(--seed2,var(--g2)));
+    box-shadow:0 5px 16px rgba(47,140,224,0.4);
   }
   .card h2{font-size:16px; margin:0; font-weight:700; color:#fff;}
   .card p{margin:0 0 11px; color:var(--sub); font-size:15px;}
@@ -91,15 +136,24 @@
   }
 
   .contact{
-    margin-top:30px; padding:22px 24px; border-radius:18px; text-align:center;
-    background:linear-gradient(135deg, rgba(51,209,135,0.14), rgba(47,182,224,0.14));
-    border:1px solid rgba(80,200,180,0.28); font-size:15px; color:var(--ink);
+    margin-top:30px; padding:26px 24px; border-radius:20px; text-align:center;
+    background:linear-gradient(135deg, rgba(47,182,224,0.14), rgba(74,76,224,0.14));
+    border:1px solid rgba(74,140,224,0.28); font-size:15px; color:var(--ink);
+    animation:fadeUp .55s ease both; animation-delay:.32s;
   }
   .contact a{
-    color:#fff; font-weight:700; text-decoration:none; border-bottom:1.5px solid rgba(51,209,135,0.7);
+    display:inline-flex; align-items:center; gap:8px;
+    margin-top:10px; padding:12px 26px; border-radius:999px;
+    background:linear-gradient(135deg, var(--g1), var(--g2));
+    color:#04140c; font-weight:800; text-decoration:none; border:none;
+    box-shadow:0 10px 26px rgba(47,140,224,0.4);
+    transition:transform .2s ease, box-shadow .2s ease;
   }
+  .contact a:hover{ transform:translateY(-2px); box-shadow:0 14px 34px rgba(47,140,224,0.55); }
+  .contact a svg{width:15px; height:15px; stroke:#04140c; fill:none; stroke-width:2.2; stroke-linecap:round; stroke-linejoin:round;}
+  .contact .label{color:var(--sub2); font-size:13px; font-weight:600;}
 
-  footer{margin-top:44px; color:var(--sub2); font-size:12.5px; text-align:center;}
+  footer{margin-top:56px; padding-top:22px; border-top:1px solid var(--line); color:var(--sub2); font-size:12.5px; text-align:center;}
 
   [data-lang="fr"]{display:none;}
   html[data-active="fr"] [data-lang="en"]{display:none;}
@@ -108,7 +162,7 @@
 </head>
 <body>
 
-<div class="bg-deco"><span class="b1"></span><span class="b2"></span><span class="b3"></span><span class="b4"></span></div>
+<div class="bg-deco"><span class="b1"></span><span class="b2"></span><span class="b3"></span><span class="b4"></span><div class="grid-tex"></div><div class="grain-tex"></div></div>
 
 <div class="wrap">
 
@@ -122,18 +176,19 @@
 
   <div data-lang="en">
     <div class="hero">
+      <div class="eyebrow"><svg viewBox="0 0 24 24"><path d="M12 3l8 3v6c0 4.5-3 8-8 9-5-1-8-4.5-8-9V6l8-3z"/><path d="M9 12l2 2 4-4"/></svg>Legal Document</div>
       <h1>Privacy Policy</h1>
       <div class="effective">Effective Date: August 21, 2026</div>
     </div>
 
     <div class="card">
-      <div class="head"><div class="badge" style="--seed1:#33d187;--seed2:#2fb6e0">01</div><h2>Information We Collect</h2></div>
+      <div class="head"><div class="badge">01</div><h2>Information We Collect</h2></div>
       <p>d32IPTV is designed to keep everything on your device. The Application does NOT collect, store, or transmit your IPTV credentials, server addresses, usernames, passwords, or playlist contents to us or to any third party. All provider configuration is stored exclusively on your device, with passwords kept in the iOS Keychain.</p>
       <p>The Application does not use analytics, advertising, or crash-reporting SDKs, and does not track you across other apps or websites.</p>
     </div>
 
     <div class="card">
-      <div class="head"><div class="badge" style="--seed1:#2fb6e0;--seed2:#5c8cf0">02</div><h2>Local Data Storage</h2></div>
+      <div class="head"><div class="badge">02</div><h2>Local Data Storage</h2></div>
       <p>The following information is stored only on your device, never on our servers:</p>
       <ul>
         <li>IPTV provider addresses, usernames, and passwords (stored in the iOS Keychain)</li>
@@ -145,49 +200,51 @@
     </div>
 
     <div class="card">
-      <div class="head"><div class="badge" style="--seed1:#7a5cf0;--seed2:#b060e0">03</div><h2>Third-Party Content</h2></div>
+      <div class="head"><div class="badge">03</div><h2>Third-Party Content</h2></div>
       <p>The Application connects directly, from your device, to the IPTV service(s) you configure. We have no control over, and no access to, the content, availability, or privacy practices of your IPTV provider(s). Please review your provider's own privacy practices separately.</p>
     </div>
 
     <div class="card">
-      <div class="head"><div class="badge" style="--seed1:#e0637a;--seed2:#f0925c">04</div><h2>Third-Party Features</h2></div>
+      <div class="head"><div class="badge">04</div><h2>Third-Party Features</h2></div>
       <p>The Application supports Apple AirPlay and Google Cast to let you send content to compatible TVs and speakers on your local network. These features are provided by Apple and Google respectively, and their use is governed by Apple's and Google's own privacy policies, which are outside of our control.</p>
     </div>
 
     <div class="card">
-      <div class="head"><div class="badge" style="--seed1:#f0b04c;--seed2:#e0637a">05</div><h2>Children's Privacy</h2></div>
+      <div class="head"><div class="badge">05</div><h2>Children's Privacy</h2></div>
       <p>The Application is not directed at children under 13, and we do not knowingly collect personal information from children under 13.</p>
     </div>
 
     <div class="card">
-      <div class="head"><div class="badge" style="--seed1:#33d187;--seed2:#2fb6e0">06</div><h2>Security</h2></div>
+      <div class="head"><div class="badge">06</div><h2>Security</h2></div>
       <p>Your IPTV credentials are stored using iOS's built-in security features (Keychain) and are never transmitted to us or to any server we control.</p>
     </div>
 
     <div class="card">
-      <div class="head"><div class="badge" style="--seed1:#2fb6e0;--seed2:#5c8cf0">07</div><h2>Changes to This Policy</h2></div>
+      <div class="head"><div class="badge">07</div><h2>Changes to This Policy</h2></div>
       <p>We may update this Privacy Policy from time to time. Any changes will be reflected on this page. Continued use of the Application after a change constitutes acceptance of the revised policy.</p>
     </div>
 
     <div class="contact">
-      Questions about this policy? Contact us at <a href="mailto:d32solutions@gmail.com">d32solutions@gmail.com</a>
+      <div class="label">Questions about this policy?</div>
+      <a href="mailto:d32solutions@gmail.com"><svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="3"/><path d="M3.5 7l8.5 6 8.5-6"/></svg>d32solutions@gmail.com</a>
     </div>
   </div>
 
   <div data-lang="fr">
     <div class="hero">
+      <div class="eyebrow"><svg viewBox="0 0 24 24"><path d="M12 3l8 3v6c0 4.5-3 8-8 9-5-1-8-4.5-8-9V6l8-3z"/><path d="M9 12l2 2 4-4"/></svg>Document légal</div>
       <h1>Politique de confidentialité</h1>
       <div class="effective">Date d'entrée en vigueur : 21 août 2026</div>
     </div>
 
     <div class="card">
-      <div class="head"><div class="badge" style="--seed1:#33d187;--seed2:#2fb6e0">01</div><h2>Informations que nous collectons</h2></div>
+      <div class="head"><div class="badge">01</div><h2>Informations que nous collectons</h2></div>
       <p>d32IPTV est conçue pour que tout reste sur votre appareil. L'Application ne collecte, ne stocke ni ne transmet vos identifiants IPTV, adresses de serveur, noms d'utilisateur, mots de passe ou contenus de playlist, ni vers nous ni vers un tiers. Toute configuration de fournisseur est stockée exclusivement sur votre appareil, les mots de passe étant conservés dans le Trousseau iOS (Keychain).</p>
       <p>L'Application n'utilise aucun SDK d'analyse, de publicité ou de rapport de plantage, et ne vous suit pas à travers d'autres applications ou sites web.</p>
     </div>
 
     <div class="card">
-      <div class="head"><div class="badge" style="--seed1:#2fb6e0;--seed2:#5c8cf0">02</div><h2>Stockage local des données</h2></div>
+      <div class="head"><div class="badge">02</div><h2>Stockage local des données</h2></div>
       <p>Les informations suivantes sont stockées uniquement sur votre appareil, jamais sur nos serveurs :</p>
       <ul>
         <li>Adresses, noms d'utilisateur et mots de passe des fournisseurs IPTV (stockés dans le Trousseau iOS)</li>
@@ -199,36 +256,37 @@
     </div>
 
     <div class="card">
-      <div class="head"><div class="badge" style="--seed1:#7a5cf0;--seed2:#b060e0">03</div><h2>Contenu tiers</h2></div>
+      <div class="head"><div class="badge">03</div><h2>Contenu tiers</h2></div>
       <p>L'Application se connecte directement, depuis votre appareil, au(x) service(s) IPTV que vous configurez. Nous n'avons aucun contrôle sur, ni aucun accès au contenu, à la disponibilité ou aux pratiques de confidentialité de votre ou vos fournisseur(s) IPTV. Veuillez consulter séparément les pratiques de confidentialité propres à votre fournisseur.</p>
     </div>
 
     <div class="card">
-      <div class="head"><div class="badge" style="--seed1:#e0637a;--seed2:#f0925c">04</div><h2>Fonctionnalités tierces</h2></div>
+      <div class="head"><div class="badge">04</div><h2>Fonctionnalités tierces</h2></div>
       <p>L'Application prend en charge Apple AirPlay et Google Cast pour vous permettre d'envoyer du contenu vers des téléviseurs et enceintes compatibles sur votre réseau local. Ces fonctionnalités sont fournies respectivement par Apple et Google, et leur utilisation est régie par les propres politiques de confidentialité d'Apple et de Google, hors de notre contrôle.</p>
     </div>
 
     <div class="card">
-      <div class="head"><div class="badge" style="--seed1:#f0b04c;--seed2:#e0637a">05</div><h2>Confidentialité des mineurs</h2></div>
+      <div class="head"><div class="badge">05</div><h2>Confidentialité des mineurs</h2></div>
       <p>L'Application ne s'adresse pas aux enfants de moins de 13 ans, et nous ne collectons pas sciemment d'informations personnelles auprès d'enfants de moins de 13 ans.</p>
     </div>
 
     <div class="card">
-      <div class="head"><div class="badge" style="--seed1:#33d187;--seed2:#2fb6e0">06</div><h2>Sécurité</h2></div>
+      <div class="head"><div class="badge">06</div><h2>Sécurité</h2></div>
       <p>Vos identifiants IPTV sont stockés grâce aux fonctionnalités de sécurité intégrées d'iOS (Trousseau) et ne sont jamais transmis à nous ni à un serveur que nous contrôlons.</p>
     </div>
 
     <div class="card">
-      <div class="head"><div class="badge" style="--seed1:#2fb6e0;--seed2:#5c8cf0">07</div><h2>Modifications de cette politique</h2></div>
+      <div class="head"><div class="badge">07</div><h2>Modifications de cette politique</h2></div>
       <p>Nous pouvons mettre à jour cette Politique de confidentialité de temps à autre. Toute modification sera reflétée sur cette page. Le fait de continuer à utiliser l'Application après une modification vaut acceptation de la politique révisée.</p>
     </div>
 
     <div class="contact">
-      Des questions sur cette politique ? Contactez-nous à <a href="mailto:d32solutions@gmail.com">d32solutions@gmail.com</a>
+      <div class="label">Des questions sur cette politique ?</div>
+      <a href="mailto:d32solutions@gmail.com"><svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="3"/><path d="M3.5 7l8.5 6 8.5-6"/></svg>d32solutions@gmail.com</a>
     </div>
   </div>
 
-  <footer>d32IPTV — required by Apple to be publicly accessible at a stable URL.</footer>
+  <footer>d32IPTV</footer>
 </div>
 
 <script>
