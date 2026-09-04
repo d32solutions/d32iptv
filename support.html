@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en" id="html-root">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>d32IPTV — Support</title>
+<style>
+  :root{
+    --ink:#16181d; --sub:#5a6270; --line:#e6e8ec; --card:#ffffff; --bg:#f5f6f8;
+    --accent:#2f6fed;
+  }
+  *{box-sizing:border-box}
+  body{
+    margin:0; background:var(--bg); color:var(--ink);
+    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+    line-height:1.6;
+  }
+  .wrap{max-width:680px; margin:0 auto; padding:48px 20px 90px;}
+  header.top{display:flex; align-items:center; justify-content:space-between; margin-bottom:8px;}
+  .brand{display:flex; align-items:center; gap:10px; font-weight:700; font-size:18px;}
+  .brand .dot{width:10px;height:10px;border-radius:50%;background:var(--accent);}
+  .lang-toggle{display:flex; gap:2px; background:#eef0f3; padding:3px; border-radius:999px; border:1px solid var(--line);}
+  .lang-toggle button{
+    border:none; background:transparent; padding:6px 14px; border-radius:999px;
+    font-size:13px; font-weight:600; cursor:pointer; color:var(--sub);
+  }
+  .lang-toggle button.active{background:var(--accent); color:#fff;}
+  h1{font-size:30px; margin:28px 0 16px;}
+  .card{
+    background:var(--card); border:1px solid var(--line); border-radius:14px;
+    padding:22px 24px; margin-bottom:16px;
+  }
+  .card h2{font-size:16px; margin:0 0 10px;}
+  .card p{margin:0 0 10px; color:#31353d; font-size:15px;}
+  .card p:last-child{margin-bottom:0}
+  .contact{
+    margin-top:8px; padding:18px 22px; border-radius:14px;
+    background:#eef4ff; border:1px solid #d7e4fb; font-size:16px; text-align:center;
+  }
+  .contact a{color:var(--accent); font-weight:700; text-decoration:none; font-size:18px;}
+  footer{margin-top:40px; color:var(--sub); font-size:13px; text-align:center;}
+  [data-lang="fr"]{display:none;}
+  html[data-active="fr"] [data-lang="en"]{display:none;}
+  html[data-active="fr"] [data-lang="fr"]{display:block;}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header class="top">
+    <div class="brand"><span class="dot"></span> d32IPTV</div>
+    <div class="lang-toggle">
+      <button id="btn-en" class="active" onclick="setLang('en')">EN</button>
+      <button id="btn-fr" onclick="setLang('fr')">FR</button>
+    </div>
+  </header>
+
+  <div data-lang="en">
+    <h1>Support</h1>
+    <div class="card">
+      <h2>About d32IPTV</h2>
+      <p>d32IPTV is a player and manager for your own Xtream Codes or M3U IPTV subscriptions, for iPhone, iPad and Mac. It does not provide, host or resell any content.</p>
+    </div>
+    <div class="card">
+      <h2>Need help?</h2>
+      <p>For questions, bug reports, or feature requests, reach out any time — we aim to reply within a few business days.</p>
+    </div>
+    <div class="contact">
+      ✉️ <a href="mailto:d32solutions@gmail.com">d32solutions@gmail.com</a>
+    </div>
+  </div>
+
+  <div data-lang="fr">
+    <h1>Assistance</h1>
+    <div class="card">
+      <h2>À propos de d32IPTV</h2>
+      <p>d32IPTV est un lecteur et gestionnaire pour vos propres abonnements IPTV Xtream Codes ou M3U, sur iPhone, iPad et Mac. L'application ne fournit, n'héberge ni ne revend aucun contenu.</p>
+    </div>
+    <div class="card">
+      <h2>Besoin d'aide ?</h2>
+      <p>Pour toute question, signalement de bug ou suggestion, contactez-nous à tout moment — nous répondons généralement sous quelques jours ouvrés.</p>
+    </div>
+    <div class="contact">
+      ✉️ <a href="mailto:d32solutions@gmail.com">d32solutions@gmail.com</a>
+    </div>
+  </div>
+
+  <footer>d32IPTV</footer>
+</div>
+
+<script>
+  function setLang(l){
+    document.getElementById('html-root').setAttribute('data-active', l);
+    document.getElementById('btn-en').classList.toggle('active', l==='en');
+    document.getElementById('btn-fr').classList.toggle('active', l==='fr');
+  }
+</script>
+</body>
+</html>

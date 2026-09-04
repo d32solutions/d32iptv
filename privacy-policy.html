@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en" id="html-root">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>d32IPTV — Privacy Policy</title>
+<style>
+  :root{
+    --ink:#16181d; --sub:#5a6270; --line:#e6e8ec; --card:#ffffff; --bg:#f5f6f8;
+    --accent:#2f6fed;
+  }
+  *{box-sizing:border-box}
+  body{
+    margin:0; background:var(--bg); color:var(--ink);
+    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+    line-height:1.6;
+  }
+  .wrap{max-width:760px; margin:0 auto; padding:48px 20px 90px;}
+  header.top{display:flex; align-items:center; justify-content:space-between; margin-bottom:8px;}
+  .brand{display:flex; align-items:center; gap:10px; font-weight:700; font-size:18px;}
+  .brand .dot{width:10px;height:10px;border-radius:50%;background:var(--accent);}
+  .lang-toggle{display:flex; gap:2px; background:#eef0f3; padding:3px; border-radius:999px; border:1px solid var(--line);}
+  .lang-toggle button{
+    border:none; background:transparent; padding:6px 14px; border-radius:999px;
+    font-size:13px; font-weight:600; cursor:pointer; color:var(--sub);
+  }
+  .lang-toggle button.active{background:var(--accent); color:#fff;}
+  h1{font-size:30px; margin:28px 0 4px;}
+  .effective{color:var(--sub); font-size:14px; margin-bottom:32px;}
+  .card{
+    background:var(--card); border:1px solid var(--line); border-radius:14px;
+    padding:22px 24px; margin-bottom:16px;
+  }
+  .card h2{font-size:16px; margin:0 0 10px; display:flex; align-items:center; gap:8px;}
+  .card p{margin:0 0 10px; color:#31353d; font-size:15px;}
+  .card p:last-child{margin-bottom:0}
+  .card ul{margin:8px 0; padding-left:20px; color:#31353d; font-size:15px;}
+  .card li{margin-bottom:6px;}
+  .contact{
+    margin-top:28px; padding:18px 22px; border-radius:14px;
+    background:#eef4ff; border:1px solid #d7e4fb; font-size:15px;
+  }
+  .contact a{color:var(--accent); font-weight:600; text-decoration:none;}
+  footer{margin-top:40px; color:var(--sub); font-size:13px; text-align:center;}
+  [data-lang="fr"]{display:none;}
+  html[data-active="fr"] [data-lang="en"]{display:none;}
+  html[data-active="fr"] [data-lang="fr"]{display:block;}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header class="top">
+    <div class="brand"><span class="dot"></span> d32IPTV</div>
+    <div class="lang-toggle">
+      <button id="btn-en" class="active" onclick="setLang('en')">EN</button>
+      <button id="btn-fr" onclick="setLang('fr')">FR</button>
+    </div>
+  </header>
+
+  <div data-lang="en">
+    <h1>Privacy Policy</h1>
+    <div class="effective">Effective Date: August 21, 2026</div>
+
+    <div class="card">
+      <h2>Information We Collect</h2>
+      <p>d32IPTV is designed to keep everything on your device. The Application does NOT collect, store, or transmit your IPTV credentials, server addresses, usernames, passwords, or playlist contents to us or to any third party. All provider configuration is stored exclusively on your device, with passwords kept in the iOS Keychain.</p>
+      <p>The Application does not use analytics, advertising, or crash-reporting SDKs, and does not track you across other apps or websites.</p>
+    </div>
+
+    <div class="card">
+      <h2>Local Data Storage</h2>
+      <p>The following information is stored only on your device, never on our servers:</p>
+      <ul>
+        <li>IPTV provider addresses, usernames, and passwords (stored in the iOS Keychain)</li>
+        <li>Playlists and channel/catalog data imported from your providers</li>
+        <li>Playback progress ("Continue Watching"), favorites, and downloaded or recorded files</li>
+        <li>App preferences (appearance, time format, parental controls, and similar settings)</li>
+      </ul>
+      <p>All of the above can be permanently removed at any time by deleting the corresponding provider, using the Clear Cache option in Settings, or uninstalling the Application.</p>
+    </div>
+
+    <div class="card">
+      <h2>Third-Party Content</h2>
+      <p>The Application connects directly, from your device, to the IPTV service(s) you configure. We have no control over, and no access to, the content, availability, or privacy practices of your IPTV provider(s). Please review your provider's own privacy practices separately.</p>
+    </div>
+
+    <div class="card">
+      <h2>Third-Party Features</h2>
+      <p>The Application supports Apple AirPlay and Google Cast to let you send content to compatible TVs and speakers on your local network. These features are provided by Apple and Google respectively, and their use is governed by Apple's and Google's own privacy policies, which are outside of our control.</p>
+    </div>
+
+    <div class="card">
+      <h2>Children's Privacy</h2>
+      <p>The Application is not directed at children under 13, and we do not knowingly collect personal information from children under 13.</p>
+    </div>
+
+    <div class="card">
+      <h2>Security</h2>
+      <p>Your IPTV credentials are stored using iOS's built-in security features (Keychain) and are never transmitted to us or to any server we control.</p>
+    </div>
+
+    <div class="card">
+      <h2>Changes to This Policy</h2>
+      <p>We may update this Privacy Policy from time to time. Any changes will be reflected on this page. Continued use of the Application after a change constitutes acceptance of the revised policy.</p>
+    </div>
+
+    <div class="contact">
+      Questions about this policy? Contact us at <a href="mailto:d32solutions@gmail.com">d32solutions@gmail.com</a>.
+    </div>
+  </div>
+
+  <div data-lang="fr">
+    <h1>Politique de confidentialité</h1>
+    <div class="effective">Date d'entrée en vigueur : 21 août 2026</div>
+
+    <div class="card">
+      <h2>Informations que nous collectons</h2>
+      <p>d32IPTV est conçue pour que tout reste sur votre appareil. L'Application ne collecte, ne stocke ni ne transmet vos identifiants IPTV, adresses de serveur, noms d'utilisateur, mots de passe ou contenus de playlist, ni vers nous ni vers un tiers. Toute configuration de fournisseur est stockée exclusivement sur votre appareil, les mots de passe étant conservés dans le Trousseau iOS (Keychain).</p>
+      <p>L'Application n'utilise aucun SDK d'analyse, de publicité ou de rapport de plantage, et ne vous suit pas à travers d'autres applications ou sites web.</p>
+    </div>
+
+    <div class="card">
+      <h2>Stockage local des données</h2>
+      <p>Les informations suivantes sont stockées uniquement sur votre appareil, jamais sur nos serveurs :</p>
+      <ul>
+        <li>Adresses, noms d'utilisateur et mots de passe des fournisseurs IPTV (stockés dans le Trousseau iOS)</li>
+        <li>Playlists et données de chaînes/catalogue importées depuis vos fournisseurs</li>
+        <li>Progression de lecture ("Continue Watching"), favoris, et fichiers téléchargés ou enregistrés</li>
+        <li>Préférences de l'application (apparence, format d'heure, contrôle parental et réglages similaires)</li>
+      </ul>
+      <p>Tout ce qui précède peut être supprimé définitivement à tout moment en supprimant le fournisseur correspondant, en utilisant l'option Clear Cache dans les réglages, ou en désinstallant l'Application.</p>
+    </div>
+
+    <div class="card">
+      <h2>Contenu tiers</h2>
+      <p>L'Application se connecte directement, depuis votre appareil, au(x) service(s) IPTV que vous configurez. Nous n'avons aucun contrôle sur, ni aucun accès au contenu, à la disponibilité ou aux pratiques de confidentialité de votre ou vos fournisseur(s) IPTV. Veuillez consulter séparément les pratiques de confidentialité propres à votre fournisseur.</p>
+    </div>
+
+    <div class="card">
+      <h2>Fonctionnalités tierces</h2>
+      <p>L'Application prend en charge Apple AirPlay et Google Cast pour vous permettre d'envoyer du contenu vers des téléviseurs et enceintes compatibles sur votre réseau local. Ces fonctionnalités sont fournies respectivement par Apple et Google, et leur utilisation est régie par les propres politiques de confidentialité d'Apple et de Google, hors de notre contrôle.</p>
+    </div>
+
+    <div class="card">
+      <h2>Confidentialité des mineurs</h2>
+      <p>L'Application ne s'adresse pas aux enfants de moins de 13 ans, et nous ne collectons pas sciemment d'informations personnelles auprès d'enfants de moins de 13 ans.</p>
+    </div>
+
+    <div class="card">
+      <h2>Sécurité</h2>
+      <p>Vos identifiants IPTV sont stockés grâce aux fonctionnalités de sécurité intégrées d'iOS (Trousseau) et ne sont jamais transmis à nous ni à un serveur que nous contrôlons.</p>
+    </div>
+
+    <div class="card">
+      <h2>Modifications de cette politique</h2>
+      <p>Nous pouvons mettre à jour cette Politique de confidentialité de temps à autre. Toute modification sera reflétée sur cette page. Le fait de continuer à utiliser l'Application après une modification vaut acceptation de la politique révisée.</p>
+    </div>
+
+    <div class="contact">
+      Des questions sur cette politique ? Contactez-nous à <a href="mailto:d32solutions@gmail.com">d32solutions@gmail.com</a>.
+    </div>
+  </div>
+
+  <footer>d32IPTV — this page is required by Apple to be publicly accessible at a stable URL.</footer>
+</div>
+
+<script>
+  function setLang(l){
+    document.getElementById('html-root').setAttribute('data-active', l);
+    document.getElementById('btn-en').classList.toggle('active', l==='en');
+    document.getElementById('btn-fr').classList.toggle('active', l==='fr');
+  }
+</script>
+</body>
+</html>
